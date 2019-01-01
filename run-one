@@ -1,0 +1,48 @@
+#!/bin/bash
+
+#
+#    run-one - run just one instance at a time of some command and
+#              unique set of arguments (useful for cronjobs, eg)
+#    Authors:
+#        Gabriel Bordeaux http://github.com/gabfl/
+
+#    Inspired by:
+#        run-one from Dustin Kirkland <kirkland@ubuntu.com>
+
+if [ $# -eq 0 ]; then
+	echo "ERROR: no arguments specified" 1>&2
+	exit 1
+fi
+
+# Calculate the hash of the command and arguments
+CMD="$@"
+CMDHASH=$(echo "$CMD" | shasum | awk '{print $1}')
+LOCKFILE="/tmp/run_one_"$CMDHASH
+
+# Check if lockfile exists
+if [ -f $LOCKFILE ]; then
+    # Lock file is found!
+
+    # Read content
+    LOCKFILE_PID=$(head -n 1 $LOCKFILE)
+
+    # Get command associated with PID
+    LOCKFILE_PID_CMD=$(ps -p $LOCKFILE_PID -o command=)
+
+    if [ "$LOCKFILE_PID_CMD" == "$CMD" ]; then
+        echo "Another instance is already running, exiting."
+        exit 1
+    fi
+
+    # Delete old lockfile
+    rm $LOCKFILE
+fi
+
+# Run command
+$CMD &
+
+# Get PID
+export APP_PID=$!
+
+# Create lockfile with PID
+echo "$APP_PID" > $LOCKFILE
