@@ -19,7 +19,7 @@ $ run-one [some command]
 
 ```bash
 $ cd run-one-macos
-$ make
+$ make install
 $ 
 $ run-one [some command]
 ```
