@@ -27,12 +27,12 @@ $ run-one [some command]
 ## Usage
 
 ```bash
-$ ./run-one sleep 5
-$ ./run-one sleep 5
+$ run-one sleep 5
+$ run-one sleep 5
   # Another instance is already running, exiting.
-$ ./run-one sleep 5
+$ run-one sleep 5
   # Another instance is already running, exiting.
-$ ./run-one sleep 5
+$ run-one sleep 5
   # Another instance is already running, exiting.
 $ 
 ```
