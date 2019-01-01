@@ -6,6 +6,17 @@ This utility is a MacOS clone of Ubuntu's package `run-one` ([GitHub](https://gi
 
 ## Installation
 
+### With brew
+
+```bash
+$ brew tap gabfl/run-one https://github.com/gabfl/run-one-macos
+$ brew install gabfl/run-one/run-one
+$ 
+$ run-one [some command]
+```
+
+### Compile it
+
 ```bash
 $ cd run-one-macos
 $ make
