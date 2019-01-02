@@ -29,7 +29,7 @@ if [ -f $LOCKFILE ]; then
     # Get command associated with PID
     LOCKFILE_PID_CMD=$(ps -p $LOCKFILE_PID -o command=)
 
-    if [ "$LOCKFILE_PID_CMD" == "$CMD" ]; then
+    if [[ "$LOCKFILE_PID_CMD" == *"$CMD" ]]; then
         echo "Another instance is already running, exiting."
         exit 1
     fi
