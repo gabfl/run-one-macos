@@ -1,8 +1,8 @@
 class RunOne < Formula
     desc "Wrapper script that runs no more than one unique instance of a command"
     homepage "https://github.com/gabfl/run-one-macos"
-    url "https://github.com/gabfl/run-one-macos/archive/v1.1.tar.gz"
-    sha256 "ddb722194f4a05b90a30b79dfa1e55681e51e50245507a772c5cd0b950605484"
+    url "https://github.com/gabfl/run-one-macos/archive/v1.2.tar.gz"
+    sha256 "d82a33d8415a26329f403d3d6973c2f0cf73669cd32817d30c4088e4e7a7ca8a"
     head "https://github.com/gabfl/run-one-macos.git"
   
     def install
