@@ -28,12 +28,11 @@ $ run-one [some command]
 
 ```bash
 $ run-one sleep 5
+$ echo $?
+0
 $ run-one sleep 5
-  # Another instance is already running, exiting.
-$ run-one sleep 5
-  # Another instance is already running, exiting.
-$ run-one sleep 5
-  # Another instance is already running, exiting.
+$ echo $?
+1
 $ 
 ```
 
